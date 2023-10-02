@@ -1,0 +1,19 @@
+<form class="ui large form segment">
+    <h3 class="ui header">Shopping List</h3>
+    <fieldset [disabled]="!edit ? 'disabled' : null">
+        <div class="form-group">
+            <label for="itemName">Item Name</label>
+            <input *ngIf="shopping" class="form-control" name="itemName" id="itemName" [(ngModel)]="shopping.itemName">
+        </div>
+        <div class="form-group">
+            <label for="amount">Amount</label>
+            <input *ngIf="shopping" class="form-control" name="amount" id="amount" [(ngModel)]="shopping.amount">
+        </div>
+    </fieldset>
+    <div class="btn-toolbar" role="toolbar">
+      <button class="btn btn-danger" name="delete" (click)="delete()">Delete</button>
+      <button (click)="toggleEdit()" class="btn btn-secondary m-auto" *ngIf="edit">Protect</button>
+      <button (click)="toggleEdit()" class="btn btn-secondary m-auto" *ngIf="!edit">Edit</button>
+    </div>
+  </form>
+  
